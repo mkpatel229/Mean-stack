@@ -1,0 +1,34 @@
+
+  <form #AddProduct="ngForm" (ngSubmit)="AddProduct.valid && onSubmit(AddProduct)" class="form-group">
+    <input type="text" #productName="ngModel" [(ngModel)]="prod.productName" name="productName" placeholder="Product Name"
+    required  [ngClass]="{'invalid-textbox' :AddProduct.submitted && !productName.valid }">
+    <div *ngIf="AddProduct.submitted && !productName.valid">
+      <label class="validation-message">This field is required.</label>
+    </div>
+    <input type="text" #category="ngModel" [(ngModel)]="prod.category" name="category" placeholder="Category"
+    required [ngClass]="{'invalid-textbox' :AddProduct.submitted && !category.valid }">
+    <div *ngIf="AddProduct.submitted && category.errors">
+      <label *ngIf="category.errors.required" class="validation-message">This field is required.</label>
+    </div>
+    <input type="text" #price="ngModel" [(ngModel)]="prod.price" name="price" placeholder="Price"
+    required [ngClass]="{'invalid-textbox' :AddProduct.submitted && !price.valid }">
+    <div *ngIf="AddProduct.submitted && Price.errors">
+      <label *ngIf="Price.errors.required" class="validation-message">This field is required.</label>
+    </div>
+    <input type="text" #deliveryCharge="ngModel" [(ngModel)]="prod.deliveryCharge" name="deliveryCharge" placeholder="Delivery Charge">
+    <input type="text" #discount="ngModel" [(ngModel)]="prod.discount" name="discount" placeholder="Discount">
+    <input type="text" #offerPrice="ngModel" [(ngModel)]="prod.offerPrice" name="offerPrice" placeholder="Offer Price">
+    <input type="text" #rating="ngModel" [(ngModel)]="prod.rating" name="rating" placeholder="Rating">
+    <input type="text" #imgUrl="ngModel" [(ngModel)]="prod.imgUrl" name="imgUrl" placeholder="ImgUrl">
+    <input type="submit" value="Add Product" >
+  </form>
+  
+  <!-- Success message -->
+  <div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+  
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>

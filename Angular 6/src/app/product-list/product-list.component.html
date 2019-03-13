@@ -1,0 +1,22 @@
+<h2>Welcome {{welcomeMsg}}</h2>
+<div class="container"> 
+<div class="row" >
+
+  <div *ngFor="let prod of products">
+    <div class="card bg-light mb-3" style="max-width: 20rem;" >
+      <div class="card-header">Price: {{prod.price}} RS</div>
+      <div class="card-body">
+        <h4 class="card-title">{{prod.productName}}</h4>
+        <img src="{{prod.imgUrl}}" />
+        <div class="card-text">Category: {{prod.category}}</div>
+        <div class="card-text" *ngIf="prod.discount">Discount: {{prod.discount}}</div>
+        <div class="card-text" *ngIf="prod.deliveryCharge">DeliveryCharge: {{prod.deliveryCharge}}</div>
+        <div class="card-text" *ngIf="prod.offerPrice">offerPrice: {{prod.offerPrice}} RS</div>
+        <div class="card-text" *ngIf="prod.rating">Rating: {{prod.rating}}</div>
+        <button type="button" class="btn btn-primary cart-button">Add to cart</button>
+      </div>
+    </div>
+</div>
+  
+</div>
+</div>

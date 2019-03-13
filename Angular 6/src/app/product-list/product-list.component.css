@@ -1,0 +1,14 @@
+.card-body{
+    height: 350px;
+    width: 220px;
+}
+
+.card{
+    margin: 20px
+}
+
+.cart-button{
+    position: absolute;
+    align-content: center;
+    bottom:   0;
+}
